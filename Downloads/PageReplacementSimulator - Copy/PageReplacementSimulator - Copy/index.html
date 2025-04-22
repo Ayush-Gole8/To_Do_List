@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Replacement Algorithm Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Page Replacement Algorithm Simulator</h1>
+      <p>Visualize and understand how different page replacement algorithms work in operating systems</p>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="algorithm-cards">
+      <div class="algorithm-card fifo-gradient">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
+        <h2>FIFO</h2>
+        <p>First-In, First-Out</p>
+        <div class="card-actions">
+          <button class="info-btn" data-algorithm="fifo">Learn More</button>
+          <a href="simulator.html?algorithm=fifo" class="simulator-link">Try Simulator</a>
+        </div>
+      </div>
+
+      <div class="algorithm-card lru-gradient">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h2>LRU</h2>
+        <p>Least Recently Used</p>
+        <div class="card-actions">
+          <button class="info-btn" data-algorithm="lru">Learn More</button>
+          <a href="simulator.html?algorithm=lru" class="simulator-link">Try Simulator</a>
+        </div>
+      </div>
+
+      <div class="algorithm-card optimal-gradient">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h2>Optimal</h2>
+        <p>Optimal (Clairvoyant) Algorithm</p>
+        <div class="card-actions">
+          <button class="info-btn" data-algorithm="optimal">Learn More</button>
+          <a href="simulator.html?algorithm=optimal" class="simulator-link">Try Simulator</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>What are Page Replacement Algorithms?</h2>
+      <p>
+        Page replacement algorithms are used in operating systems to manage memory. When a page fault occurs
+        and no free frames are available, the OS must choose which page to evict from memory to make room for
+        a new page.
+      </p>
+      <p>
+        Different algorithms use different strategies to decide which page to replace, affecting the
+        performance of the memory management system. The effectiveness of an algorithm is often measured
+        by the number of page faults it generates.
+      </p>
+      <div class="key-concepts">
+        <h3>Key Concepts</h3>
+        <ul>
+          <li><strong>Frame:</strong> A fixed-size block of physical memory</li>
+          <li><strong>Page:</strong> A fixed-size block of virtual memory</li>
+          <li><strong>Page Fault:</strong> Occurs when a requested page is not in memory</li>
+          <li><strong>Reference String:</strong> Sequence of memory page requests</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modal for algorithm details -->
+    <div id="algorithm-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-content">
+          <!-- Content will be filled by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
